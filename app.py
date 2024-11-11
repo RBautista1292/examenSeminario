@@ -60,7 +60,7 @@ def logIn():
     user = body['usuario']
     password = body['contrasena']
     cur.execute('SELECT * FROM clientes WHERE usuario = %s',
-                (user,))
+                (str(user),))
     user_recovered = cur.fetchone()
     if password == user_recovered[5]:
         user_data = {
